@@ -1,0 +1,149 @@
+/* SurveyCard.css */
+
+.survey-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.survey-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+/* Selected state applied on the root element */
+.survey-card.selected-card {
+  background: #d7f4e2; /* pale green */
+  border: 2px solid #30c870; /* green highlight */
+}
+
+/* image wrapper so we can position the checkmark */
+.image-wrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.survey-image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+}
+
+/* orange checkmark circle (top-left) */
+.checkmark-overlay {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ff5a1f;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* Card info */
+.survey-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.survey-name {
+  font-weight: 700;
+  font-size: 16px;
+  color: #212121;
+}
+
+.survey-role {
+  font-size: 14px;
+  color: #555;
+}
+
+/* meta row: rating / price / location */
+.survey-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+  color: #6b6b6b;
+  margin-top: 6px;
+}
+
+.survey-meta .rate {
+  font-weight: 700;
+  color: #333;
+}
+
+.survey-meta .location {
+  text-align: right;
+}
+
+/* View Profile button and heart icon row */
+.action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.profile-btn {
+  flex: 1;
+  background: #ff5a1f;
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+}
+
+.profile-btn:hover {
+  background: #e94a12;
+}
+
+/* small heart / favorite button */
+.favorite-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #ff5a1f;
+  cursor: pointer;
+}
+
+.favorite-btn:hover {
+  background: #fff6f3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .survey-image { height: 160px; }
+}
+
+@media (max-width: 600px) {
+  .survey-image { height: 140px; }
+  .survey-card { padding: 12px; }
+  .checkmark-overlay { width: 38px; height: 38px; font-size: 16px; }
+}

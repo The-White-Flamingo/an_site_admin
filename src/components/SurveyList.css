@@ -1,0 +1,69 @@
+/* SurveyFilters.css - drop in as-is */
+
+/* Root container: left content + right buttons */
+.survey-filters-root {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+  box-sizing: border-box;
+  padding: 8px 0;
+}
+
+/* Left side (filters) */
+.filters-left {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex: 0 1 auto; /* allow left to size naturally */
+}
+
+/* Inputs styling (you can keep your own styles) */
+.filter-input {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(16,24,40,0.08);
+  min-width: 260px;
+}
+.filter-select {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(16,24,40,0.08);
+}
+
+/* Button group — we push only this to the very right */
+.filter-buttons {
+  margin-left: auto;   /* key: pushes buttons to extreme right */
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+/* Extra-specific rule to override other styles if necessary */
+.survey-selection-wrapper .survey-filters-root .filter-buttons,
+.survey-filters-root .filter-buttons {
+  margin-left: auto !important;
+}
+
+/* Buttons */
+.search-btn,
+.advanced-btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+}
+
+.search-btn {
+  background: #ff6a3c;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(255,106,60,0.12);
+}
+
+.advanced-btn {
+  background: transparent;
+  color: #ff6a3c;
+  border: 1px solid rgba(255,106,60,0.18);
+}

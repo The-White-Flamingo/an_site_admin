@@ -1,0 +1,129 @@
+.topbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 14px 28px;
+  background: white;
+  border-bottom: 1px solid #f1f1f5;
+  box-sizing: border-box;
+}
+
+/* LEFT */
+.topbar-left {
+  flex: 0 0 auto;
+}
+.topbar-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1c2340;
+  margin: 0;
+}
+
+/* CENTER: occupies available center space, but centers its inner content */
+.topbar-center {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: center; /* center the inner block horizontally */
+  align-items: center;
+  pointer-events: none; /* allow clicks to pass to children nicely */
+}
+
+.center-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  pointer-events: auto; /* enable interaction inside */
+}
+
+/* Search box */
+.topbar-search input {
+  width: 360px;       /* adjust length here */
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+  background: #f3f5ff;
+  outline: none;
+  font-size: 14px;
+  box-shadow: none;
+}
+
+/* Language block (next to search) */
+.topbar-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #eef0fb;
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+}
+
+.flag {
+  font-size: 18px;
+}
+
+/* small caret */
+.caret {
+  color: #9aa0b4;
+  font-size: 12px;
+}
+
+/* RIGHT */
+.topbar-right {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* bell */
+.topbar-bell {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* profile */
+.topbar-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.profile-name {
+  margin: 0;
+  font-weight: 600;
+  color: #1c2340;
+  font-size: 14px;
+}
+
+.profile-role {
+  font-size: 12px;
+  color: #8a8f9a;
+}
+
+/* Responsive tweaks */
+@media (max-width: 980px) {
+  .topbar-search input { width: 260px; }
+}
+
+@media (max-width: 680px) {
+  .center-inner { gap: 8px; }
+  .topbar-search input { width: 180px; }
+  .topbar-lang { display: none; } /* hide language on small screens */
+}

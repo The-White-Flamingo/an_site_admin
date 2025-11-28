@@ -1,0 +1,51 @@
+.steps-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  padding-left: 30px;
+  background: #f0f0f0;
+  box-shadow: none !important;          
+  border: 1px; 
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #23C55E; /* green */
+  border-radius: 50%;
+  margin-left: -30px; /* aligns dot on the line */
+  z-index: 2;
+  margin-top: 4px;
+}
+
+.line {
+  width: 2px;
+  height: 40px; /* adjust as needed */
+  background-color: #23C55E;
+  position: absolute;
+  left: 6px; /* center the line under dots */
+  top: 35px; /* aligns between both dots */
+  z-index: 1;
+  border-radius: 2px;
+}
+
+.step h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.step p {
+  margin: 3px 0 0;
+  font-size: 13px;
+  max-width: 250px; /* matches the style from the screenshot */
+}
