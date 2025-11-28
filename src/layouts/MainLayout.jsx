@@ -1,37 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function Layout({ children }) {
-  const [menuOpen, setMenuOpen] = useState(false);
-
+export default function MainLayout({ children }) {
   return (
-    <>
-      {/* Hamburger icon (mobile only) */}
-      <div className="hamburger-btn" onClick={() => setMenuOpen(true)}>
-        ☰
+    <div className="min-h-screen w-full flex flex-col m-0 p-0 overflow-hidden">
+
+      {/* TOPBAR AREA — whatever component you use */}
+      <div className="w-full m-0 p-0">
+        {/* Insert your Topbar component here */}
       </div>
 
-      {/* Sidebar + overlay */}
-      <div
-        className={`sidebar-overlay ${menuOpen ? "active" : ""}`}
-        onClick={() => setMenuOpen(false)}
-      ></div>
-
-      <div className={`mobile-sidebar ${menuOpen ? "open" : ""}`}>
-        <button onClick={() => setMenuOpen(false)}>Close ✕</button>
-
-        {/* your sidebar content */}
-        <ul>
-          <li>Dashboard</li>
-          <li>Projects</li>
-          <li>Settings</li>
-          ...
-        </ul>
-      </div>
-
-      {/* Page content */}
-      <div className="page-content">
+      {/* PAGE CONTENT — takes the rest of the screen with NO SPACE */}
+      <main className="flex-1 w-full m-0 p-0 overflow-auto">
         {children}
-      </div>
-    </>
+      </main>
+
+    </div>
   );
 }
