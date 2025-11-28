@@ -1,238 +1,301 @@
-/* SurveyList.css - drop in as-is */
-
-/* overall container */
+/* --- MAIN PAGE WRAPPER --- */
 .survey-list-container {
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 28px 20px;
-  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
-  color: #222;
-  box-sizing: border-box;
-  background: #ffffff;
+  padding: 1rem;
 }
 
-/* header block */
-.find-header {
-  padding: 18px 8px 28px;
+/* --- TOP WHITE BOX (Find + Recommended + Save Button) --- */
+.top-card-box {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 1px 0 rgba(16,24,40,0.03),
+              0 8px 30px rgba(16,24,40,0.06);
+  border: 1px solid rgba(16,24,40,0.04);
+  margin-bottom: 2rem;
 }
+
+/* --- BOTTOM WHITE BOX (Alternate Cards Section) --- */
+.bottom-card-box {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 1px 0 rgba(16,24,40,0.03),
+              0 8px 30px rgba(16,24,40,0.06);
+  border: 1px solid rgba(16,24,40,0.04);
+  margin-top: 2rem;
+}
+
+/* --- HEADER TEXT --- */
 .find-header h2 {
   margin: 0;
-  font-size: 26px;
-  font-weight: 700;
-  color: #222;
+  font-size: 1.6rem;
 }
+
 .find-header p {
-  margin: 8px 0 0;
-  color: #666;
+  max-width: 600px;
+  font-size: 0.95rem;
   line-height: 1.4;
-  max-width: 820px;
+  color: #555;
 }
 
-/* section titles */
-.recommended-text,
-.alternate-title {
-  margin: 32px 0 14px;
-  font-size: 18px;
-  font-weight: 700;
-  color: #222;
+/* --- RECOMMENDED LABEL --- */
+.recommended-text {
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
-/* Grid used for both Recommended and Alternate sections */
+/* --- SURVEY GRID (RESPONSIVE) --- */
 .survey-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
 }
 
-/* Make grid responsive */
-@media (min-width: 1100px) {
-  .survey-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
-}
-@media (min-width: 1400px) {
-  .survey-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 30px; }
-}
-@media (max-width: 640px) {
-  .survey-grid { grid-template-columns: 1fr; gap: 18px; }
+@media (max-width: 768px) {
+  .survey-grid {
+    grid-template-columns: 1fr; /* Mobile = 1 per row */
+  }
 }
 
-/* Generic card root fallback:
-   Many components render as a div inside .survey-grid.
-   This will style them even if SurveyCard root doesn't have .survey-card class.
-*/
-.survey-grid > * {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 1px 0 rgba(16,24,40,0.03), 0 8px 30px rgba(16,24,40,0.06);
-  border: 1px solid rgba(16,24,40,0.04);
-  padding: 14px;
-  box-sizing: border-box;
+/* --- SAVE & CONTINUE --- */
+.save-continue-wrapper {
+  margin-top: 2rem;
   display: flex;
-  flex-direction: column;
-  min-height: 300px;
-}
-
-/* If SurveyCard root uses this class, these add more precise layout */
-.survey-card { padding: 16px; }
-
-/* image area */
-.survey-grid img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 10px;
-  display: block;
-  margin-bottom: 12px;
-}
-
-/* card meta row (name, rating) */
-.survey-card .meta,
-.survey-grid > * .meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-.survey-card .name,
-.survey-grid > * .name {
-  font-weight: 700;
-  font-size: 14px;
-  color: #111;
-}
-.survey-card .subtitle,
-.survey-grid > * .subtitle {
-  color: #4b5563;
-  font-size: 13px;
-  margin-top: 4px;
-}
-
-/* rating pill */
-.survey-card .rating,
-.survey-grid > * .rating {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: transparent;
-  color: #ffb03b; /* star color */
-  font-weight: 600;
-  font-size: 13px;
-}
-
-/* info rows */
-.survey-card .info-row,
-.survey-grid > * .info-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #6b7280;
-  font-size: 13px;
-  margin: 8px 0;
-}
-
-/* view profile button - prominent orange */
-.survey-card .view-profile-btn,
-.survey-grid > * .view-profile-btn {
-  margin-top: auto;
-  display: inline-flex;
-  align-items: center;
   justify-content: center;
-  width: 100%;
-  padding: 11px 14px;
-  border-radius: 10px;
+}
+
+.save-continue-btn {
+  background-color: #ff5a1f;
+  color: white;
+  padding: 0.6rem 1.4rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
   border: none;
   cursor: pointer;
-  font-weight: 700;
-  background: linear-gradient(180deg,#ff5a1f,#ff5a1f);
-  color: #fff;
-  box-shadow: 0 6px 18px rgba(255,90,31,0.12);
+  width: fit-content;
 }
 
-/* small heart / favorite icon in card corner */
-.survey-card .fav,
-.survey-grid > * .fav {
-  position: relative;
-  justify-self: end;
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  border: 1px solid rgba(16,24,40,0.06);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
+.save-continue-btn:hover {
+  background-color: #ff5a1f;
 }
 
-/* Save & Continue - positioned to right in top section
-   Use an always-visible button class the page may render; if your Save button is separate, this rule will match it if named .save-continue-btn */
-.save-continue-btn {
-  display: inline-block;
-  padding: 10px 16px;
-  border-radius: 8px;
-  background: #ff6a3c;
-  color: #fff;
-  font-weight: 700;
-  float: right;
-  margin-top: 12px;
-  box-shadow: 0 6px 18px rgba(255,106,60,0.12);
-}
-
-/* Unselect button matches screenshot style (pill, orange border, white background) */
+/* --- UNSELECT BUTTON --- */
 .unselect-btn {
-  background: #fff;
-  border: 1px solid #ff6a3c;
-  color: #ff6a3c;
-  padding: 8px 14px;
-  font-weight: 700;
-  border-radius: 999px;
+  margin-top: 1rem;
+  background: none;
+  border: none;
+  color: orange;
+  font-size: 0.9rem;
   cursor: pointer;
-  display: inline-block;
-  margin-bottom: 18px;
-}
-.unselect-btn:hover { background: #fff2ee; }
-
-/* Filters / Alternate option filter bar */
-.survey-selection-wrapper .survey-filters,
-.SurveyFilters,
-.survey-selection-wrapper .filters-bar {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  background: #f6f6f7;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid rgba(16,24,40,0.03);
-  margin-bottom: 14px;
+  padding: 0;
 }
 
-/* search results title */
-.search-results-title {
-  font-size: 15px;
-  color: #444;
-  margin-bottom: 12px;
-  font-weight: 600;
-}
-
-/* sort control alignment */
-.sort-controls {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 10px;
-  color: #666;
-  gap: 10px;
-}
-
-/* subtle page footer spacing like screenshot */
+/* --- ALTERNATE OPTION WRAPPER --- */
 .survey-selection-wrapper {
-  margin-top: 26px;
-  padding-top: 10px;
+  margin-top: 3rem;
 }
 
-/* small helper: ensure inner text blocks don't overflow */
-.survey-grid p,
-.survey-list-container p { word-break: break-word; }
+/* --- FILTERS ROW --- */
+.filters-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
 
-/* Accessibility - focus for interactive elements */
-button:focus, .view-profile-btn:focus {
-  outline: 3px solid rgba(255,106,60,0.12);
-  outline-offset: 2px;
+.filters-left {
+  flex: 1;
+}
+
+.filters-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Fix filters on mobile */
+@media (max-width: 768px) {
+  .filters-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filters-buttons {
+    justify-content: flex-start;
+  }
+}
+/* ALWAYS 2 cards per row on desktop/tablet */
+.survey-grid {
+    display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;       /* less spacing between cards */
+  row-gap: 12px;   /* reduces vertical space */
+}
+
+/* Cards shrink correctly inside the white box */
+.survey-card {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* MOBILE: 1 card per row ONLY */
+@media (max-width: 768px) {
+  .survey-grid {
+    grid-template-columns: 1fr; /* mobile = stacked vertically */
+  }
+}
+/* Shrink overall card width/size */
+.survey-card {
+  transform: scale(0.78);    /* shrink the whole card */
+  transform-origin: top left;    /* keeps alignment correct */
+  margin-bottom: -10px;          /* removes extra gap from scaling */
+}
+
+/* Make cards fit inside the white box */
+.survey-grid {
+  grid-template-columns: repeat(2, 1fr);  /* stay 2 per row */
+  gap: 0.8rem;                             /* smaller spacing */
+  padding: 0.5rem;                         /* keeps them inside */
+}
+
+/* Mobile view: always 1 per row */
+@media (max-width: 768px) {
+  .survey-card {
+    transform: scale(1);          /* normal size on mobile */
+  }
+
+  .survey-grid {
+    grid-template-columns: 1fr;   /* single column */
+  }
+}
+/* Slightly shrink just the image inside the card */
+.survey-card img {
+  width: 420px; 
+  height: 280px; 
+  display: block;
+  margin: 5px;      /* keeps it centered */
+  object-fit: cover;
+  border-radius: 8px;
+}
+/* ===========================
+   FORCE-OVERRIDE: Layout sanity
+   Paste this at the BOTTOM of SurveyList.css
+   =========================== */
+
+/* global sane box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+/* container: full responsive width */
+.survey-list-container {
+  width: 100% !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  padding: 16px !important;
+  overflow-x: hidden !important;
+}
+
+/* === GRID: ALWAYS 2 columns on >= 600px, 1 column on mobile === */
+.survey-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 12px !important;      /* horizontal + vertical gap */
+  row-gap: 12px !important;
+  padding: 6px 0 !important;
+  align-items: start !important;
+}
+
+/* mobile breakpoint -> single column stack */
+@media (max-width: 600px) {
+  .survey-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+}
+
+/* ensure no negative or strange gaps from previous rules */
+.survey-grid,
+.survey-grid * {
+  margin: 0 !important;
+}
+
+/* === SURVEY CARD - force sane sizing & remove transforms that cause overlap === */
+.survey-card,
+.survey-grid > * {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 12px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+  transform: none !important;           /* remove any scale transforms */
+  transform-origin: unset !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04) !important;
+  border-radius: 12px !important;
+  background: #fff !important;
+  box-sizing: border-box !important;
+}
+
+/* make sure grid children don't force taller rows than necessary */
+.survey-grid > * { align-self: start !important; }
+
+/* === IMAGE: clear, fixed height, not stretched === */
+.survey-card img,
+.survey-grid img,
+.survey-image {
+  width: 100% !important;
+  height: 180px !important;      /* adjust up/down to taste */
+  object-fit: cover !important;
+  display: block !important;
+  margin: 0 0 12px 0 !important;
+  border-radius: 10px !important;
+}
+
+/* === CARD CONTENT spacing (name, meta, footer) === */
+.survey-card .survey-info,
+.survey-grid > * .survey-info {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* ensure profile button sits at bottom of each card */
+.survey-card .footer-row,
+.survey-grid > * .footer-row {
+  margin-top: auto !important;
+}
+
+/* === SAVE BUTTON & UNSELECT placement - ensure they don't overlap cards === */
+.save-continue-wrapper,
+.unselect-btn {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* small screens: ensure button full width and no floating */
+@media (max-width: 600px) {
+  .save-continue-btn {
+    width: 100% !important;
+    display: block !important;
+  }
+}
+
+/* defensive - remove any negative gap rules that might still exist */
+* {
+  gap: unset !important;
+  row-gap: unset !important;
+  column-gap: unset !important;
+}
+
+/* stop horizontal scrolling caused by any leftover width rules */
+html, body, .survey-list-container {
+  overflow-x: hidden !important;
 }

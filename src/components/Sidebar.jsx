@@ -1,58 +1,55 @@
-import React from "react";
-import "./SurveyorList.css";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
-export default function SurveyorList() {
-  const surveyors = [
-    {
-      id: 1,
-      name: "Christell Tawiah",
-      rating: 5.0,
-      reviews: 4,
-      role: "Boundary Surveyor",
-      rate: "$60/hr",
-      location: "Greater Accra",
-      image: "/images/surveyor1.jpg"
-    },
-    {
-      id: 2,
-      name: "Christell Tawiah",
-      rating: 5.0,
-      reviews: 4,
-      role: "Boundary Surveyor",
-      rate: "$60/hr",
-      location: "Greater Accra",
-      image: "/images/surveyor2.jpg"
-    }
-  ];
+export default function Sidebar({ children }) {
+  const [open, setOpen] = useState(false); // For mobile sidebar
 
   return (
-    <div className="surveyor-container">
-      <h2 className="title">Recommended</h2>
+    <div className="flex">
 
-      <div className="cards">
-        {surveyors.map((sv) => (
-          <div key={sv.id} className="card">
-            <img src={sv.image} alt="surveyor" className="card-img" />
+      {/* 🚀 ORANGE HAMBURGER BUTTON (mobile only) */}
+      <button
+        onClick={() => setOpen(true)}
+        className="md:hidden p-3 bg-orange-500 text-white rounded-md fixed top-4 left-4 z-50"
+      >
+        <Menu size={24} />
+      </button>
 
-            <div className="card-body">
-              <h3 className="name">{sv.name}</h3>
+      {/* 🚀 MOBILE SLIDE-OUT SIDEBAR */}
+      {open && (
+        <div className="fixed inset-0 bg-black/40 z-50 flex md:hidden">
+          <div className="w-64 bg-white h-full p-4 shadow-xl">
 
-              <div className="rating">
-                ⭐ {sv.rating} <span>({sv.reviews} reviews)</span>
-              </div>
+            {/* Close button */}
+            <button
+              onClick={() => setOpen(false)}
+              className="mb-4 p-2 border rounded-lg"
+            >
+              <X size={20} />
+            </button>
 
-              <p className="role">{sv.role}</p>
-
-              <div className="details">
-                <p><strong>Hourly Rate:</strong> {sv.rate}</p>
-                <p><strong>Location:</strong> {sv.location}</p>
-              </div>
-
-              <button className="view-btn">View Profile</button>
-            </div>
+            {/* Mobile Menu */}
+            <nav className="flex flex-col gap-3">
+              <a href="#" className="p-2 hover:bg-gray-100 rounded-lg">Dashboard</a>
+              <a href="#" className="p-2 hover:bg-gray-100 rounded-lg">Surveys</a>
+              <a href="#" className="p-2 hover:bg-gray-100 rounded-lg">Settings</a>
+            </nav>
           </div>
-        ))}
-      </div>
+        </div>
+      )}
+
+      {/* 🚀 DESKTOP SIDEBAR */}
+      <aside className="hidden md:block w-64 bg-white h-screen border-r p-4 shadow-md">
+        <h2 className="text-lg font-semibold mb-4">Menu</h2>
+        <nav className="flex flex-col gap-3">
+          <a href="#" className="p-2 hover:bg-gray-100 rounded-lg">Dashboard</a>
+          <a href="#" className="p-2 hover:bg-gray-100 rounded-lg">Surveys</a>
+          <a href="#" className="p-2 hover:bg-gray-100 rounded-lg">Settings</a>
+        </nav>
+      </aside>
+
+      {/* MAIN CONTENT */}
+      <main className="flex-1">{children}</main>
     </div>
   );
 }

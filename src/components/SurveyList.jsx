@@ -11,47 +11,64 @@ export default function SurveyList() {
 
   return (
     <div className="survey-list-container">
-      
-      {/* FIND A SURVEYOR SECTION */}
-      <div className="find-header">
-        <h2>Find a Surveyor</h2>
-        <p>
-          We've recommended surveyors based on experience and your location.
-          Select one or choose your own professional from the alternate option section.
-        </p>
+
+      {/* ========== TOP WHITE BOX ========== */}
+      <div className="top-card-box">
+
+        {/* FIND A SURVEYOR SECTION */}
+        <div className="find-header">
+          <h2>Find a Surveyor</h2>
+          <p>
+            We've recommended surveyors based on experience and your location.
+            Select one or choose your own professional from the alternate option section.
+          </p>
+        </div>
+
+        {/* Recommended section */}
+        <h3 className="recommended-text">Recommended</h3>
+
+        <div className="survey-grid">
+          {surveyors.map((item, index) => (
+            <SurveyCard
+              key={index}
+              item={item}
+              selected={selected === index}
+              onSelect={() => setSelected(index)}
+              onUnselect={() => setSelected(null)}
+            />
+          ))}
+        </div>
+
+        {/* Save & Continue button */}
+        <div className="save-continue-wrapper">
+          <button className="save-continue-btn">Save & Continue</button>
+        </div>
+
       </div>
+      {/* ========== END TOP WHITE BOX ========== */}
 
-      {/* Recommended section */}
-      <h3 className="recommended-text">Recommended</h3>
 
-      <div className="survey-grid">
-        {surveyors.map((item, index) => (
-          <SurveyCard
-            key={index}
-            item={item}
-            selected={selected === index}
-            onSelect={() => setSelected(index)}
-            onUnselect={() => setSelected(null)}
-          />
-        ))}
-      </div>
-
-      {/* ⭐ MISSING BUTTON — THIS FIXES YOUR LAYOUT SHIFT ⭐ */}
-      <div className="save-continue-wrapper">
-        <button className="save-continue-btn">Save & Continue</button>
-      </div>
-
-      {/* Alternate Option */}
-      <div className="survey-selection-wrapper">
+      {/* ========== GREY GAP ========== */}
+      <div className="grey-gap">
 
         {selected !== null && (
-          <button className="unselect-btn" onClick={() => setSelected(null)}>
-            Unselect surveyor →
-          </button>
+          <div style={{ marginBottom: 12 }}>
+            <button className="unselect-btn" onClick={() => setSelected(null)}>
+              Unselect surveyor →
+            </button>
+          </div>
         )}
 
-        <SurveyFilters isBottom={true} />
+        <div className="filters-row">
+          <SurveyFilters isBottom={true} />
+        </div>
 
+      </div>
+      {/* ========== END GREY GAP ========== */}
+
+
+      {/* ========== BOTTOM WHITE BOX ========== */}
+      <div className="bottom-card-box">
         <div className="survey-grid">
           {surveyors.map((item, index) => (
             <SurveyCard
@@ -64,6 +81,8 @@ export default function SurveyList() {
           ))}
         </div>
       </div>
+      {/* ========== END BOTTOM WHITE BOX ========== */}
+
     </div>
   );
 }

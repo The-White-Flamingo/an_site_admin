@@ -175,3 +175,74 @@
     padding: 8px;
   }
 }
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: #ffffff;
+  border-right: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;   /* <— FIX */
+  gap: 20px;                     /* <— CLOSES THE GAP */
+  padding: 22px 18px;
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: white;
+  border-right: 1px solid #eee;
+
+  display: flex;
+  flex-direction: column;
+
+  /* THIS IS CORRECT → items stack at top naturally */
+  justify-content: flex-start;
+
+  padding: 22px 18px;
+  gap: 20px;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+/* Let menu and account group naturally close up */
+.sidebar-menu,
+.sidebar-account {
+  display: flex;
+  flex-direction: column;
+  gap: 14px; /* Controls spacing EXACTLY like screenshot */
+}
+
+/* Force Pro card to bottom */
+.sidebar-pro {
+  margin-top: auto;   /* <<< THIS IS THE MAIN FIX */
+}
+/* SIDEBAR ALWAYS VISIBLE ON DESKTOP */
+.sidebar {
+  transform: translateX(0); 
+}
+
+/* MOBILE — sidebar hidden until hamburger clicked */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 250px;
+    background: white;
+    transform: translateX(-100%);
+    transition: 0.3s ease-in-out;
+    z-index: 999;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}

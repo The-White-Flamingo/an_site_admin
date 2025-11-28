@@ -1,129 +1,178 @@
-.topbar {
-  width: 100%;
+/* Main Topbar Container */
+.topbar-container {
+  width: 100%; /* FIXED: FULL WIDTH */
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
   display: flex;
   align-items: center;
-  padding: 14px 28px;
-  background: white;
-  border-bottom: 1px solid #f1f1f5;
+  justify-content: space-between;
+  padding: 16px 24px;
+  margin: 0 !important;
   box-sizing: border-box;
+  position: relative;
+  z-index: 20;
 }
 
-/* LEFT */
-.topbar-left {
-  flex: 0 0 auto;
-}
-.topbar-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: #1c2340;
-  margin: 0;
+/* 3-Column Layout Fix */
+.topbar-left,
+.topbar-right {
+  flex: 0 0 auto; /* Prevent stretching */
 }
 
-/* CENTER: occupies available center space, but centers its inner content */
 .topbar-center {
-  flex: 1 1 0;
+  flex: 1; /* Middle grows */
   display: flex;
-  justify-content: center; /* center the inner block horizontally */
+  justify-content: center;
   align-items: center;
-  pointer-events: none; /* allow clicks to pass to children nicely */
+  gap: 20px;
 }
 
-.center-inner {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  pointer-events: auto; /* enable interaction inside */
+/* Title */
+.topbar-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1f2937;
 }
 
-/* Search box */
-.topbar-search input {
-  width: 360px;       /* adjust length here */
+/* Search Input */
+.topbar-search {
+  flex: 1;
+  max-width: 600px;
   padding: 10px 14px;
   border-radius: 12px;
-  border: none;
-  background: #f3f5ff;
+  background: #f5f7fb;
+  border: 1px solid #e4e7ec;
+  font-size: 14px;
   outline: none;
-  font-size: 14px;
-  box-shadow: none;
+  transition: all 0.2s ease;
 }
 
-/* Language block (next to search) */
-.topbar-lang {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
-  border-radius: 10px;
-  background: #ffffff;
-  border: 1px solid #eef0fb;
-  font-weight: 500;
-  color: #333;
-  font-size: 14px;
+.topbar-search:focus {
+  background: #fff;
+  border-color: #cbd5e1;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
 }
 
-.flag {
-  font-size: 18px;
-}
-
-/* small caret */
-.caret {
-  color: #9aa0b4;
-  font-size: 12px;
-}
-
-/* RIGHT */
+/* Right Section */
 .topbar-right {
-  flex: 0 0 auto;
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 28px;
 }
 
-/* bell */
-.topbar-bell {
-  font-size: 20px;
+/* Language Button */
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  color: #374151;
   cursor: pointer;
+  padding: 6px 10px;
 }
 
-/* profile */
+.lang-menu {
+  position: absolute;
+  right: 0;
+  margin-top: 8px;
+  width: 130px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 6px 0;
+  z-index: 20;
+}
+
+.lang-item {
+  width: 100%;
+  padding: 8px 12px;
+  text-align: left;
+  font-size: 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #374151;
+}
+
+.lang-item:hover {
+  background: #f3f4f6;
+}
+
+.flag-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 6px;
+}
+
+/* Notification Bell */
+.topbar-bell-btn {
+  background: transparent;
+  border: none;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.topbar-bell {
+  color: #9ca3af;
+  transition: all 0.2s ease;
+}
+
+.topbar-bell-btn.on svg {
+  filter: drop-shadow(0 0 3px rgba(249,115,22,0.7));
+}
+
+.topbar-bell-btn:active {
+  transform: scale(0.96);
+}
+
+/* Profile */
 .topbar-profile {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.profile-img {
-  width: 38px;
-  height: 38px;
+.topbar-profile img {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  object-fit: cover;
 }
 
 .profile-info {
   display: flex;
   flex-direction: column;
-  line-height: 1.05;
 }
 
 .profile-name {
-  margin: 0;
-  font-weight: 600;
-  color: #1c2340;
   font-size: 14px;
+  font-weight: 600;
 }
 
 .profile-role {
   font-size: 12px;
-  color: #8a8f9a;
+  color: #6b7280;
 }
 
-/* Responsive tweaks */
-@media (max-width: 980px) {
-  .topbar-search input { width: 260px; }
+/* Remove page gaps */
+.page-content,
+.main-content,
+.container,
+.content-wrapper,
+.layout-body {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
-@media (max-width: 680px) {
-  .center-inner { gap: 8px; }
-  .topbar-search input { width: 180px; }
-  .topbar-lang { display: none; } /* hide language on small screens */
+/* Sidebar Z-Index Fix */
+.sidebar {
+  z-index: 10;
 }

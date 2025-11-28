@@ -1,51 +1,80 @@
 .steps-box {
-  display: flex;
+  background: white;
+  padding: 20px 20px 20px 50px;
+  border-radius: 10px;
+  width: fit-content;
+  height: fit-content;    /* prevents unwanted long stretch */
+  display: inline-flex;
   flex-direction: column;
-  gap: 20px;
   position: relative;
-  padding-left: 30px;
-  background: #f0f0f0;
-  box-shadow: none !important;          
-  border: 1px; 
 }
 
+/* EACH STEP */
 .step {
   display: flex;
   align-items: flex-start;
   gap: 12px;
   position: relative;
+  margin-bottom: 25px;
 }
 
+.step:last-child {
+  margin-bottom: 0;
+}
+
+/* DOT STYLES */
 .dot {
   width: 12px;
   height: 12px;
-  background-color: #23C55E; /* green */
   border-radius: 50%;
-  margin-left: -30px; /* aligns dot on the line */
-  z-index: 2;
-  margin-top: 4px;
-}
-
-.line {
-  width: 2px;
-  height: 40px; /* adjust as needed */
-  background-color: #23C55E;
   position: absolute;
-  left: 6px; /* center the line under dots */
-  top: 35px; /* aligns between both dots */
-  z-index: 1;
-  border-radius: 2px;
+  left: -30px;
+  top: 4px;
+  z-index: 3;
 }
 
+.dot.green {
+  background-color: #22c55e;
+}
+
+.dot.grey {
+  background-color: #d1d5db;
+}
+
+/* CONNECTOR 1: between Step 1 & Step 2 */
+.connector-line {
+  position: absolute;
+  left:24px;    /* aligns with dots */
+  top: 36px;      /* between first two dots */
+  width: 3px;
+  height: 80px;
+  background: #22c55e;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+/* CONNECTOR 2: between Step 2 & Step 3 */
+.connector-line.second {
+  position: absolute;
+  left:24px;
+  top: 110px;      /* directly under step 2 dot */
+  width: 3px;
+  height: 85px; 
+  background-color: #d1d5db;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+/* TEXT */
 .step h4 {
   margin: 0;
   font-size: 16px;
   font-weight: 600;
-  color: #333;
 }
 
 .step p {
   margin: 3px 0 0;
   font-size: 13px;
-  max-width: 250px; /* matches the style from the screenshot */
+  color: #666;
+  max-width: 240px;
 }

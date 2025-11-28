@@ -16,3 +16,14 @@
   gap: 25px;
   padding: 20px 25px;
 }
+/* HAMBURGER VISIBLE ONLY ON MOBILE */
+.hamburger-btn {
+  display: none; /* hide by default */
+}
+
+/* SHOW hamburger only when screen is small */
+@media (max-width: 768px) {
+  .hamburger-btn {
+    display: block;
+  }
+}

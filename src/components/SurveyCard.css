@@ -1,149 +1,289 @@
-/* SurveyCard.css */
-
 .survey-card {
+  width: 100%;
   background: #fff;
   border-radius: 16px;
   padding: 14px;
   border: 1px solid #eee;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-  position: relative;
-  overflow: hidden;
 }
 
-.survey-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-}
-
-/* Selected state applied on the root element */
-.survey-card.selected-card {
-  background: #d7f4e2; /* pale green */
-  border: 2px solid #30c870; /* green highlight */
-}
-
-/* image wrapper so we can position the checkmark */
 .image-wrapper {
   position: relative;
-  border-radius: 12px;
-  overflow: hidden;
 }
 
 .survey-image {
   width: 100%;
-  height: 140px;
+  height: 200px;
+  border-radius: 14px;
   object-fit: cover;
-  display: block;
 }
 
-/* orange checkmark circle (top-left) */
 .checkmark-overlay {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: #ff5a1f;
+  bottom: 10px;
+  right: 10px;
+  background: #ff6b00;
   color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 18px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
 }
 
-/* Card info */
 .survey-info {
+  padding: 12px 0;
+}
+
+/* NAME + GREEN DOT */
+.name-row {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 6px;
 }
 
 .survey-name {
-  font-weight: 700;
   font-size: 16px;
-  color: #212121;
+  font-weight: 600;
+}
+
+.online-dot {
+  width: 9px;
+  height: 9px;
+  background: #2ecc71;
+  border-radius: 50%;
 }
 
 .survey-role {
   font-size: 14px;
   color: #555;
+  margin-bottom: 6px;
 }
 
-/* meta row: rating / price / location */
-.survey-meta {
+/* ⭐ RATING */
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.rating-text {
+  font-weight: 600;
+}
+
+.review-text {
+  font-size: 13px;
+  color: #777;
+}
+
+/* DETAIL GRID */
+.details-grid {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
-  font-size: 13px;
-  color: #6b6b6b;
-  margin-top: 6px;
+  margin-bottom: 14px;
 }
 
-.survey-meta .rate {
-  font-weight: 700;
+.details-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #555;
+  font-size: 14px;
+}
+
+.details-right {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rate-text,
+.location-text {
+  font-size: 14px;
+  font-weight: 600;
   color: #333;
 }
 
-.survey-meta .location {
-  text-align: right;
-}
-
-/* View Profile button and heart icon row */
-.action-row {
+/* FOOTER */
+.footer-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
-  margin-top: 8px;
 }
 
 .profile-btn {
-  flex: 1;
-  background: #ff5a1f;
+  background: #ff6b00;
   color: #fff;
-  padding: 10px 12px;
-  border-radius: 10px;
   border: none;
-  font-weight: 700;
-  cursor: pointer;
-  text-align: center;
-}
-
-.profile-btn:hover {
-  background: #e94a12;
-}
-
-/* small heart / favorite button */
-.favorite-btn {
-  width: 40px;
-  height: 40px;
+  padding: 8px 16px;
   border-radius: 10px;
-  border: 1px solid #eee;
-  display: inline-flex;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.heart-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  display: flex;
   align-items: center;
   justify-content: center;
+}
+/* ROLE FIRST */
+.survey-role {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+/* NAME + RATING SAME LINE */
+.name-rating-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name-dot-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.survey-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+}
+
+/* RATING INLINE */
+.rating-inline {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rating-inline .rating-text {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.rating-inline .review-text {
+  font-size: 12px;
+  color: #777;
+}
+/* Make name lighter (was bold before) */
+.swapped-name {
+  font-weight: 400;
+}
+
+/* Make role bold (was light before) */
+.swapped-role {
+  font-weight: 600;
+}
+.profile-btn {
+  width: 330px; 
+}
+/* ----- PAGE LAYOUT STRUCTURE (NO JSX CHANGES) ----- */
+
+/* Outer container */
+.page-wrapper {
+  width: 100%;
+  background: #f4f4f4;
+  padding: 20px;
+}
+
+/* WHITE BOX SECTIONS */
+.white-section {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* GREY GAP SECTIONS */
+.grey-section {
+  padding: 10px 2px 20px 2px;
+}
+
+/* TITLES INSIDE GREY GAP */
+.grey-section h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* WHITE SEARCH BAR (white box #2) */
+.white-search-bar {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+/* SELECT, SEARCH BUTTON, ADVANCED BUTTON */
+.white-search-bar select,
+.white-search-bar button {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.white-search-bar .search-now-btn {
+  background: #ff7a00;
+  color: #fff;
+  border: none;
+}
+
+.white-search-bar .advanced-btn {
   background: #fff;
-  color: #ff5a1f;
-  cursor: pointer;
 }
 
-.favorite-btn:hover {
-  background: #fff6f3;
+/* CARD GRID LAYOUT (recommended + search results) */
+.cards-wrapper {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
 }
 
-/* Responsive adjustments */
-@media (max-width: 900px) {
-  .survey-image { height: 160px; }
+@media (min-width: 768px) {
+  .cards-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-@media (max-width: 600px) {
-  .survey-image { height: 140px; }
-  .survey-card { padding: 12px; }
-  .checkmark-overlay { width: 38px; height: 38px; font-size: 16px; }
+@media (min-width: 1100px) {
+  .cards-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* SAVE & CONTINUE BUTTON */
+.save-continue-btn {
+  margin-top: 20px;
+  width: 100%;
+  background: #ff7a00;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 16px;
 }
