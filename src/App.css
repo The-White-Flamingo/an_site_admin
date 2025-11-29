@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -40,3 +41,34 @@
 .read-the-docs {
   color: #888;
 }
+=======
+.app.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+.main-content {
+  margin-left: 240px; /* Same as sidebar width */
+  flex: 1;
+  background: #f7f7f7;
+  padding: 20px;
+}
+
+
+.content-layout {
+  display: flex;
+  gap: 25px;
+  padding: 20px 25px;
+}
+/* HAMBURGER VISIBLE ONLY ON MOBILE */
+.hamburger-btn {
+  display: none; /* hide by default */
+}
+
+/* SHOW hamburger only when screen is small */
+@media (max-width: 768px) {
+  .hamburger-btn {
+    display: block;
+  }
+}
+>>>>>>> c811088d69b91042a40f6a494281caee3cac0189

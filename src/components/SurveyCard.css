@@ -1,0 +1,289 @@
+.survey-card {
+  width: 100%;
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  cursor: pointer;
+}
+
+.image-wrapper {
+  position: relative;
+}
+
+.survey-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.checkmark-overlay {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: #ff6b00;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.survey-info {
+  padding: 12px 0;
+}
+
+/* NAME + GREEN DOT */
+.name-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.survey-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.online-dot {
+  width: 9px;
+  height: 9px;
+  background: #2ecc71;
+  border-radius: 50%;
+}
+
+.survey-role {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+/* ⭐ RATING */
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.rating-text {
+  font-weight: 600;
+}
+
+.review-text {
+  font-size: 13px;
+  color: #777;
+}
+
+/* DETAIL GRID */
+.details-grid {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.details-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #555;
+  font-size: 14px;
+}
+
+.details-right {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rate-text,
+.location-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* FOOTER */
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-btn {
+  background: #ff6b00;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.heart-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* ROLE FIRST */
+.survey-role {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+/* NAME + RATING SAME LINE */
+.name-rating-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name-dot-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.survey-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+}
+
+/* RATING INLINE */
+.rating-inline {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rating-inline .rating-text {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.rating-inline .review-text {
+  font-size: 12px;
+  color: #777;
+}
+/* Make name lighter (was bold before) */
+.swapped-name {
+  font-weight: 400;
+}
+
+/* Make role bold (was light before) */
+.swapped-role {
+  font-weight: 600;
+}
+.profile-btn {
+  width: 330px; 
+}
+/* ----- PAGE LAYOUT STRUCTURE (NO JSX CHANGES) ----- */
+
+/* Outer container */
+.page-wrapper {
+  width: 100%;
+  background: #f4f4f4;
+  padding: 20px;
+}
+
+/* WHITE BOX SECTIONS */
+.white-section {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* GREY GAP SECTIONS */
+.grey-section {
+  padding: 10px 2px 20px 2px;
+}
+
+/* TITLES INSIDE GREY GAP */
+.grey-section h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* WHITE SEARCH BAR (white box #2) */
+.white-search-bar {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+/* SELECT, SEARCH BUTTON, ADVANCED BUTTON */
+.white-search-bar select,
+.white-search-bar button {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.white-search-bar .search-now-btn {
+  background: #ff7a00;
+  color: #fff;
+  border: none;
+}
+
+.white-search-bar .advanced-btn {
+  background: #fff;
+}
+
+/* CARD GRID LAYOUT (recommended + search results) */
+.cards-wrapper {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .cards-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .cards-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* SAVE & CONTINUE BUTTON */
+.save-continue-btn {
+  margin-top: 20px;
+  width: 100%;
+  background: #ff7a00;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+}
