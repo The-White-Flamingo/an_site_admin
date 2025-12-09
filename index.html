@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Surveyor — Admin Dashboard</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Top mobile bar (visible on small screens) -->
+  <header class="topbar">
+    <button class="hamburger" aria-label="Open menu">☰</button>
+    <div class="brand">Surveyor</div>
+    <div class="mobile-actions"></div>
+  </header>
+
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <div class="logo">
+          <div class="logo-mark">S</div>
+          <div class="logo-text">Admin Panel</div>
+        </div>
+
+        <nav class="nav">
+          <a class="nav-item active"><span class="dot"></span> Dashboard</a>
+          <a class="nav-item">My Surveys</a>
+          <a class="nav-item">Payments</a>
+          <a class="nav-item">Messages</a>
+          <a class="nav-item">Help</a>
+          <a class="nav-item">Account</a>
+          <a class="nav-item">Disputes</a>
+          <a class="nav-item">Sign Out</a>
+        </nav>
+      </div>
+
+      <div class="sidebar-cta">
+        <div class="promo">
+          <div class="promo-mark">Surveys Pro</div>
+          <p class="promo-text">Unlock advanced features</p>
+          <button class="btn btn-primary small">Get Pro</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main">
+      
+      <div class="main-top">
+        <h1 class="page-title">Dashboard</h1>
+        <div class="top-controls">
+          <div class="search">
+            <input type="text" placeholder="Search here..." />
+          </div>
+          <div class="lang">Eng (US)</div>
+          <div class="profile">
+            <img src="https://via.placeholder.com/36" alt="avatar">
+            <span class="profile-name">Munifa</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cards row -->
+      <section class="cards-row">
+        <div class="card quick-actions">
+          <h3>Quick Actions</h3>
+          <ul>
+            <li>Request New Survey</li>
+            <li>View Completed projects</li>
+            <li>Make a payment</li>
+          </ul>
+        </div>
+
+        <div class="card recent-transactions">
+          <h3>Recent Transactions</h3>
+          <ul>
+            <li>
+              <img src="https://via.placeholder.com/40" alt="">
+              <div class="tx-info">
+                <div class="tx-name">Hamitz Sharma</div>
+                <div class="tx-meta">Surveyor • 02:30 PM | 12/02/21</div>
+              </div>
+              <div class="tx-amount green">$200</div>
+            </li>
+
+            <li>
+              <img src="https://via.placeholder.com/40" alt="">
+              <div class="tx-info">
+                <div class="tx-name">Hamitz Sharma</div>
+                <div class="tx-meta">Surveyor • 02:30 PM | 12/02/21</div>
+              </div>
+              <div class="tx-amount green">$200</div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card quick-message">
+          <h3>Quick Message</h3>
+          <ul>
+            <li>
+              <img src="https://via.placeholder.com/40" alt="">
+              <div class="msg-info">
+                <div class="msg-name">Hamitz Sharma</div>
+                <div class="msg-text">I'm working on it. Should be ready</div>
+              </div>
+              <div class="msg-time">Now</div>
+            </li>
+
+            <li>
+              <img src="https://via.placeholder.com/40" alt="">
+              <div class="msg-info">
+                <div class="msg-name">Kojo Amponsah</div>
+                <div class="msg-text">Hope you're well</div>
+              </div>
+              <div class="msg-time">05 Nov</div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- My Surveys -->
+      <section class="surveys">
+        <h2 class="section-title">My Surveys</h2>
+
+        <div class="survey-card">
+          <div class="survey-left">
+            <span class="badge">Ongoing</span>
+            <h3 class="survey-title">Site Survey - Accra</h3>
+            <p class="survey-meta">Expected Completion — in 20 days</p>
+
+            <div class="hired">
+              <img src="https://via.placeholder.com/40" alt="">
+              <div>
+                <div class="hired-name">Hamitz Sharma</div>
+                <a href="#" class="view-profile">View profile</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="survey-right">
+            <div class="project-cost">Project Cost<br><span class="cost-amount">$6000</span></div>
+            <button class="btn btn-primary">View Project →</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Minimal script to toggle sidebar on mobile -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.getElementById('sidebar');
+
+    hamburger && hamburger.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
