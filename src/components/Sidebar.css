@@ -246,3 +246,109 @@
     transform: translateX(0);
   }
 }
+/* DESKTOP SIDEBAR */
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: white;
+  border-right: 1px solid #eee;
+
+  display: flex;
+  flex-direction: column;
+  padding: 22px 18px;
+  gap: 20px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* MENU ITEMS */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.menu-item:hover {
+  background: #fff4ec;
+  color: #ff6b00;
+}
+
+.menu-item.active {
+  background: #ff6b00;
+  color: white;
+  font-weight: 700;
+}
+
+/* PRO CARD */
+.pro-card {
+  margin-top: auto;
+  background: #ff6b00;
+  color: white;
+  padding: 18px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.pro-btn {
+  margin-top: 8px;
+  background: white;
+  color: #ff6b00;
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  border: none;
+}
+
+/* MOBILE */
+.hamburger-btn {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 50;
+  background: #ff6b00;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+}
+
+.mobile-sidebar {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  transform: translateX(-100%);
+  transition: 0.3s ease;
+  z-index: 999;
+}
+
+.mobile-sidebar.show {
+  transform: translateX(0);
+}
+
+.mobile-content {
+  width: 260px;
+  background: white;
+  height: 100%;
+  padding: 20px;
+}
+
+.close-btn {
+  margin-bottom: 20px;
+}
